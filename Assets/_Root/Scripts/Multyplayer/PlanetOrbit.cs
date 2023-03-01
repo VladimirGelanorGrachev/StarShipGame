@@ -1,6 +1,5 @@
 using UnityEngine;
 using Network;
-using System;
 
 namespace Mechanics
 {
@@ -21,18 +20,13 @@ namespace Mechanics
         private float _currentRotationAngle;
         private const float _circleRadians = Mathf.PI * 2;
 
-        private void Start(UpdatePhase updatePhase)
+        private void Start()
         {
             if (isServer)
             {
                 _dist = (transform.position - _aroundPoint.position).magnitude;
             }
-            Initiate(updatePhase.FixedUpdate);
-        }
-
-        private void Initiate(Action fixedUpdate)
-        {
-            throw new NotImplementedException();
+            //Initiate(UpdatePhase.FixedUpdate);
         }
 
         protected override void HasAuthorityMovement()
