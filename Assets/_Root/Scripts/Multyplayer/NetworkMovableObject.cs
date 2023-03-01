@@ -1,5 +1,4 @@
 using System;
-using System.Data;
 using UnityEngine;
 using UnityEngine.Networking;
 
@@ -24,32 +23,31 @@ namespace Network
 
         public override void OnStartAuthority()
         {
-            Initiate();
+            //Initiate();
         }
 
 
-        protected virtual void Initiate(UpdatePhase updatePhase = UpdatePhase.Update)
-        {
-            switch (updatePhase)
-            {
-                case UpdatePhase.Update:
-                    _onUpdateAction += Movement;
-                    break;
-                case UpdatePhase.FixedUpdate:
-                    _onFixedUpdateAction += Movement;
-                    break;
-                case UpdatePhase.LateUpdate:
-                    _onLateUpdateAction += Movement;
-                    break;
-                case UpdatePhase.PostRender:
-                    _onPostRenderAction += Movement;
-                    break;
-                case UpdatePhase.PreRender:
-                    _onPreRenderActionAction += Movement;
-                    break;
-            }
-
-        }
+        //protected virtual void Initiate(UpdatePhase updatePhase = UpdatePhase.Update)
+        //{
+        //    switch (updatePhase)
+        //    {
+        //        case UpdatePhase.Update:
+        //            _onUpdateAction += Movement;
+        //            break;
+        //        case UpdatePhase.FixedUpdate:
+        //            _onFixedUpdateAction += Movement;
+        //            break;
+        //        case UpdatePhase.LateUpdate:
+        //            _onLateUpdateAction += Movement;
+        //            break;
+        //        case UpdatePhase.PostRender:
+        //            _onPostRenderAction += Movement;
+        //            break;
+        //        case UpdatePhase.PreRender:
+        //            _onPreRenderActionAction += Movement;
+        //            break;
+        //    }
+        //}
 
         private void Update()
         {
@@ -60,18 +58,22 @@ namespace Network
         {
             _onLateUpdateAction?.Invoke();
         }
+
         private void FixedUpdate()
         {
             _onFixedUpdateAction?.Invoke();
         }
+
         private void OnPreRender()
         {
             _onPreRenderActionAction?.Invoke();
         }
+
         private void OnPostRender()
         {
             _onPostRenderAction?.Invoke();
         }
+
         protected virtual void Movement()
         {
             if (hasAuthority)
@@ -89,4 +91,6 @@ namespace Network
         protected abstract void SendToServer();
 
     }
+
+   
 }
