@@ -826,7 +826,7 @@ GameObject:
   - component: {fileID: 747626921}
   - component: {fileID: 747626920}
   m_Layer: 0
-  m_Name: Sphere
+  m_Name: Moon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
